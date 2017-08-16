@@ -1,40 +1,42 @@
 (function() {
     tinymce.create('tinymce.plugins.sedooIframe', {
-       init : function(ed, url) {
+       init : function(ed, url) {           
           ed.addButton('sedooIframe', {
              title : 'iFrame',
              image : url+'/sedoo-iframebutton.png',
              onclick : function() {
-
+                
                 // permet de configurer la fenêtre modale
                  ed.windowManager.open( {
-                     title: "Entrez les informations de l'iframe à intégrer",
-                     width: 470,
-                     height: 150,
-                     body: [
+                    title: "Entrez les informations de l'iframe à intégrer",
+                    width: 470,
+                    height: 150,
+                    body: [
                          {
                              type: 'textbox',
                              name: 'iframeURL',
                              label: 'URL de la page à intégrer',
-                         },{
+                         },
+                         {
                              type: 'textbox', 
                              name: 'iframeWidth',
                              label: 'Largeur / width',
-                         },{
+                         },
+                         {
                             type: 'textbox', 
                             name: 'iframeHeight',
                             label: 'Hauteur / height',
                          },
                          
-                     ],
-                     onsubmit: function( e ) {
+                    ],
+                    onsubmit: function( e ) {
                          if (e.data.iframeURL != null && e.data.iframeURL != '') {
                              // Insertion automatisée du shortcode avec les attributs fournis
                              ed.insertContent( '[sedoo_iframe src="' + e.data.iframeURL + '" width="' + e.data.iframeWidth + '" height="' + e.data.iframeHeight + '"]');
                          }
-                     }     				
+                    }     				
  
-                 } );
+                } );
              }
           });
        },
@@ -50,9 +52,11 @@
              version : "1.0"
           };
        }
+       
     });
+    
     tinymce.PluginManager.add('sedooIframe', tinymce.plugins.sedooIframe);
- 
+    
      /**
       * Gestion des caractères spéciaux
       */

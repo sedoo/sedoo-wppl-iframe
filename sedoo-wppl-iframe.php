@@ -26,8 +26,12 @@ function sedoo_wppl_iframe_shortcode( $atts ) {
 
     // Attributes
     $atts = shortcode_atts($default_attributes , $atts);
+    $src=$atts['src'];
+      if ($_GET['editDatsId']) {
+          $src=$atts['src'].'?editDatsId='.$_GET['editDatsId'];
+      }
 
-    return '<iframe src="'. $atts['src'] .'" width="'. $atts['width'] .'" height="'. $atts['height'] .'"></iframe>';
+    return '<iframe src="'. $src .'" width="'. $atts['width'] .'" height="'. $atts['height'] .'" frameborder="0" scrolling="yes"></iframe>';
     // end output buffering, grab the buffer contents, and empty the buffer
     // return ob_get_clean();
 }
