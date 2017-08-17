@@ -15,9 +15,7 @@
 */
 
 function sedoo_wppl_iframe_shortcode( $atts ) {
-    // begin output buffering
-    // ob_start();
-    
+   
     $default_attributes = array(
         'src'           => 'default URL',
         'width'         => '100%',
@@ -27,13 +25,12 @@ function sedoo_wppl_iframe_shortcode( $atts ) {
     // Attributes
     $atts = shortcode_atts($default_attributes , $atts);
     $src=$atts['src'];
-      if ($_GET['editDatsId']) {
-          $src=$atts['src'].'?editDatsId='.$_GET['editDatsId'];
-      }
-
+    if (isset($_SERVER['QUERY_STRING'])) {
+        $src=$atts['src'].'?'.$_SERVER['QUERY_STRING'];
+    }
+    
     return '<iframe src="'. $src .'" width="'. $atts['width'] .'" height="'. $atts['height'] .'" frameborder="0" scrolling="yes"></iframe>';
-    // end output buffering, grab the buffer contents, and empty the buffer
-    // return ob_get_clean();
+
 }
 
 // Register the Shortcode
