@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Sedoo iFrame plugin
 * Description: Plugin d'ajout d'iframe. ciblage possible de pages spécifiques de l'iframe via variables GET
-* Version: 0.1.1
+* Version: 0.2.0
 * Author: Pierre Vert
 * Author URI: http://www.sedoo.fr
 * GitHub Plugin URI: https://github.com/sedoo/sedoo-wppl-iframe
@@ -28,7 +28,7 @@ function sedoo_wppl_iframe_shortcode( $atts ) {
     if (isset($_SERVER['QUERY_STRING'])) {
         $src=$atts['src'].'?'.$_SERVER['QUERY_STRING'];
     }
-    
+
     return '<iframe src="'. $src .'" width="'. $atts['width'] .'" height="'. $atts['height'] .'" frameborder="0" scrolling="yes"></iframe>';
 
 }
@@ -47,12 +47,12 @@ add_action( 'init', 'sedoo_wppl_iframe_register_shortcodes');
 */
 
 function sedoo_wppl_iframe_register_button( $buttons ) {
-    array_push( $buttons, "|", "iframes" );
+    array_push( $buttons, "|", "sedooIframe" );
     return $buttons;
 }
 // ajout du script js pour le bouton dans TinyMCE
 function sedoo_wppl_iframe_add_plugin( $plugin_array ) {
-    $plugin_array['iframe'] = plugin_dir_url( __FILE__ ) . 'js/sedoo-wppl-iframe-shortcode.js';
+    $plugin_array['sedooIframe'] = plugin_dir_url( __FILE__ ) . 'js/sedoo-wppl-iframe-shortcode.js';
     return $plugin_array;
 }
 
