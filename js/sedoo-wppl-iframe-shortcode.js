@@ -9,8 +9,8 @@
                 // permet de configurer la fenêtre modale
                  ed.windowManager.open( {
                     title: "Entrez les informations de l'iframe à intégrer",
-                    width: 470,
-                    height: 150,
+                    width: 670,
+                    height: 250,
                     body: [
                          {
                              type: 'textbox',
@@ -27,12 +27,17 @@
                             name: 'iframeHeight',
                             label: 'Hauteur / height',
                          },
+                         {
+                           type: 'textbox', 
+                           name: 'iframeAttributes',
+                           label: 'Add all attributes="value"',
+                        },
                          
                     ],
                     onsubmit: function( e ) {
                          if (e.data.iframeURL != null && e.data.iframeURL != '') {
                              // Insertion automatisée du shortcode avec les attributs fournis
-                             ed.insertContent( '[sedoo_iframe src="' + e.data.iframeURL + '" width="' + e.data.iframeWidth + '" height="' + e.data.iframeHeight + '"]');
+                             ed.insertContent( '[sedoo_iframe src="' + e.data.iframeURL + '" width="' + e.data.iframeWidth + '" height="' + e.data.iframeHeight + '" attributes="' + e.data.iframeAttributes + '"]');
                          }
                     }     				
  
