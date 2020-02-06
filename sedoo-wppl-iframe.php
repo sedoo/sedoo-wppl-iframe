@@ -19,7 +19,8 @@ function sedoo_wppl_iframe_shortcode( $atts ) {
     $default_attributes = array(
         'src'           => 'default URL',
         'width'         => '100%',
-        'height'        => '1000px'
+        'height'        => '1000px',
+        'attributes'    => '',
       );
 
     // Attributes
@@ -29,7 +30,7 @@ function sedoo_wppl_iframe_shortcode( $atts ) {
         $src=$atts['src'].'?'.$_SERVER['QUERY_STRING'];
     }
 
-    return '<iframe src="'. $src .'" width="'. $atts['width'] .'" height="'. $atts['height'] .'" frameborder="0" scrolling="yes"></iframe>';
+    return '<iframe src="'. $src .'" width="'. $atts['width'] .'" height="'. $atts['height'] .'" '.$atts['attributes'].' frameborder="0" scrolling="yes"></iframe>';
 
 }
 
