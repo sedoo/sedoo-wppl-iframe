@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Sedoo iFrame plugin
 * Description: Plugin d'ajout d'iframe. ciblage possible de pages spécifiques de l'iframe via variables GET
-* Version: 1.2.0
+* Version: 1.2.1
 * Author: Pierre Vert
 * Author URI: http://www.sedoo.fr
 * GitHub Plugin URI: https://github.com/sedoo/sedoo-wppl-iframe
